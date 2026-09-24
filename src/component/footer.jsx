@@ -1,10 +1,26 @@
+import { Link } from 'react-router-dom';
 import logo from '../assets/SeekMigrationLogo.png';
 import './footer.css';
 
+/* ── Footer link structure — only real pages/anchors ── */
 const footerLinks = {
-  Services: ['Skilled Worker Visa', 'Student Visa', 'Business Visa', 'Family Sponsorship', 'Permanent Residency'],
-  Company: ['About Us', 'Our Team', 'Careers', 'News & Updates', 'Contact'],
-  Resources: ['Immigration Guide', 'Visa Checklist', 'Blog', 'FAQs', 'Book a Consultation'],
+  Services: [
+    { label: 'Student Visa',        to: '/services' },
+    { label: 'Visitor Visa',        to: '/services' },
+    { label: 'Business Immigration',to: '/services' },
+    { label: 'Family Sponsorship',  to: '/services' },
+    { label: 'Permanent Residency', to: '/services' },
+  ],
+  Company: [
+    { label: 'About Us',   to: '/about'   },
+    { label: 'Our Team',   to: '/about'   },
+    { label: 'Contact Us', to: '/contact' },
+  ],
+  Resources: [
+    { label: 'Book a Consultation', to: '/contact' },
+    { label: 'Our Services',        to: '/services' },
+    { label: 'About SeekMigration', to: '/about'    },
+  ],
 };
 
 /* SVG Social Icons */
@@ -64,10 +80,6 @@ const socials = [
 ];
 
 const Footer = () => {
-  const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <footer className="footer" id="contact">
 
@@ -84,12 +96,12 @@ const Footer = () => {
           <div className="footer__topbar-divider" />
           <div className="footer__topbar-item">
             <div className="footer__topbar-icon"><PhoneIcon /></div>
-            <span>+91 8699737272</span>
+            <a href="tel:+918699737272" className="footer__topbar-link">+91 8699737272</a>
           </div>
           <div className="footer__topbar-divider" />
           <div className="footer__topbar-item">
             <div className="footer__topbar-icon"><MailIcon /></div>
-            <span>infoseek0001@gmail.com</span>
+            <a href="mailto:infoseek0001@gmail.com" className="footer__topbar-link">infoseek0001@gmail.com</a>
           </div>
         </div>
       </div>
@@ -121,8 +133,8 @@ const Footer = () => {
             </p>
             <div className="footer__contact-info">
               <span><MapPinIcon /> Sco no. 273 First Floor, Sector 35D, Chandigarh</span>
-              <span><PhoneIcon /> +91 8699737272</span>
-              <span><MailIcon /> infoseek0001@gmail.com</span>
+              <a href="tel:+918699737272"><PhoneIcon /> +91 8699737272</a>
+              <a href="mailto:infoseek0001@gmail.com"><MailIcon /> infoseek0001@gmail.com</a>
             </div>
             <div className="footer__socials">
               {socials.map(({ label, Icon }) => (
@@ -139,10 +151,8 @@ const Footer = () => {
               <h4 className="footer__col-heading">{heading}</h4>
               <ul className="footer__col-links">
                 {links.map((link) => (
-                  <li key={link}>
-                    <a href="#" onClick={(e) => { e.preventDefault(); scrollTo('home'); }}>
-                      {link}
-                    </a>
+                  <li key={link.label}>
+                    <Link to={link.to}>{link.label}</Link>
                   </li>
                 ))}
               </ul>
@@ -153,11 +163,13 @@ const Footer = () => {
 
       {/* Bottom bar */}
       <div className="footer__bottom">
-        <p>© {new Date().getFullYear()} SeekMigration. All rights reserved.</p>
-        <div className="footer__bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Disclaimer</a>
+        <div className="footer__bottom-inner">
+          <p>© {new Date().getFullYear()} SeekMigration. All rights reserved.</p>
+          <div className="footer__bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Disclaimer</a>
+          </div>
         </div>
       </div>
     </footer>

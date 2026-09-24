@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/SeekMigrationLogo.png';
 import './navbar.css';
 
@@ -12,6 +13,9 @@ const WhatsAppIcon = () => (
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -19,25 +23,47 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  /* On home page — smooth scroll; on other pages — navigate home first then scroll */
+  const handleNav = (id) => {
     setMenuOpen(false);
+    if (isHome) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    }
   };
 
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner">
         {/* Logo */}
-        <div className="navbar__logo" onClick={() => scrollTo('home')}>
+        <Link to="/" className="navbar__logo" onClick={() => setMenuOpen(false)}>
           <img src={logo} alt="SeekMigration Logo" />
-        </div>
+        </Link>
 
         {/* Desktop Links */}
         <ul className="navbar__links">
-          <li><button onClick={() => scrollTo('home')}>Home</button></li>
-          <li><button onClick={() => scrollTo('services')}>Services</button></li>
-          <li><button onClick={() => scrollTo('about')}>About</button></li>
-          <li><button onClick={() => scrollTo('contact')}>Contact</button></li>
+          <li>
+            <Link to="/services" onClick={() => setMenuOpen(false)}
+              className={location.pathname === '/services' ? 'navbar__link--active' : ''}>
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" onClick={() => setMenuOpen(false)}
+              className={location.pathname === '/about' ? 'navbar__link--active' : ''}>
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" onClick={() => setMenuOpen(false)}
+              className={location.pathname === '/contact' ? 'navbar__link--active' : ''}>
+              Contact
+            </Link>
+          </li>
         </ul>
 
         {/* CTA */}
@@ -62,11 +88,10 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div className={`navbar__mobile ${menuOpen ? 'navbar__mobile--open' : ''}`}>
-        <button onClick={() => scrollTo('home')}>Home</button>
-        <button onClick={() => scrollTo('services')}>Services</button>
-        <button onClick={() => scrollTo('about')}>About</button>
-        <button onClick={() => scrollTo('contact')}>Contact</button>
-        <button className="navbar__cta" onClick={() => scrollTo('contact')}>Free Consultation</button>
+        <Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link>
+        <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
+        <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+        <Link to="/contact" className="navbar__cta" onClick={() => setMenuOpen(false)}>Free Consultation</Link>
       </div>
     </nav>
   );
