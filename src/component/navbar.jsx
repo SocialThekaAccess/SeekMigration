@@ -53,6 +53,12 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
+            <Link to="/countries" onClick={() => setMenuOpen(false)}
+              className={location.pathname === '/countries' ? 'navbar__link--active' : ''}>
+              Countries
+            </Link>
+          </li>
+          <li>
             <Link to="/about" onClick={() => setMenuOpen(false)}
               className={location.pathname === '/about' ? 'navbar__link--active' : ''}>
               About
@@ -88,9 +94,10 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div className={`navbar__mobile ${menuOpen ? 'navbar__mobile--open' : ''}`}>
-        <Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link>
-        <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
-        <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+        <Link to="/services"  onClick={() => setMenuOpen(false)}>Services</Link>
+        <Link to="/countries" onClick={() => setMenuOpen(false)}>Countries</Link>
+        <Link to="/about"     onClick={() => setMenuOpen(false)}>About</Link>
+        <Link to="/contact"   onClick={() => setMenuOpen(false)}>Contact</Link>
         <Link to="/contact" className="navbar__cta" onClick={() => setMenuOpen(false)}>Free Consultation</Link>
       </div>
     </nav>

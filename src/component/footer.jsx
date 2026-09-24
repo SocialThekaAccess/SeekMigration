@@ -17,9 +17,10 @@ const footerLinks = {
     { label: 'Contact Us', to: '/contact' },
   ],
   Resources: [
-    { label: 'Book a Consultation', to: '/contact' },
-    { label: 'Our Services',        to: '/services' },
-    { label: 'About SeekMigration', to: '/about'    },
+    { label: 'Book a Consultation', to: '/contact'   },
+    { label: 'Our Services',        to: '/services'  },
+    { label: 'Countries We Cover',  to: '/countries' },
+    { label: 'About SeekMigration', to: '/about'     },
   ],
 };
 

@@ -52,7 +52,6 @@ const team = [
   {
     name: 'Priya Sharma',
     role: 'Lead Migration Agent',
-    exp: '12 yrs exp',
     icon: (
       <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
@@ -63,7 +62,6 @@ const team = [
   {
     name: 'Rahul Verma',
     role: 'Skilled Worker Specialist',
-    exp: '9 yrs exp',
     icon: (
       <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
@@ -74,7 +72,6 @@ const team = [
   {
     name: 'Anjali Singh',
     role: 'Student Visa Advisor',
-    exp: '7 yrs exp',
     icon: (
       <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
@@ -190,7 +187,6 @@ const About = () => {
                 <div className="about__team-avatar">{m.icon}</div>
                 <h4>{m.name}</h4>
                 <p className="about__team-role">{m.role}</p>
-                <span className="about__team-exp">{m.exp}</span>
               </div>
             ))}
           </div>

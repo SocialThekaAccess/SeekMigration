@@ -65,9 +65,9 @@ const values = [
 ];
 
 const team = [
-  { name: 'Priya Sharma',  role: 'Lead Migration Agent',      exp: '4 yrs exp' },
-  { name: 'Rahul Verma',   role: 'Skilled Worker Specialist',  exp: '3 yrs exp' },
-  { name: 'Anjali Singh',  role: 'Student Visa Advisor',       exp: '2 yrs exp' },
+  { name: 'Priya Sharma',  role: 'Lead Migration Agent'      },
+  { name: 'Rahul Verma',   role: 'Skilled Worker Specialist'  },
+  { name: 'Anjali Singh',  role: 'Student Visa Advisor'       },
 ];
 
 const milestones = [
@@ -248,7 +248,6 @@ const AboutPage = () => {
                 <div className="ap__team-avatar"><UserIcon /></div>
                 <h4>{m.name}</h4>
                 <p className="ap__team-role">{m.role}</p>
-                <span className="ap__team-exp">{m.exp}</span>
               </div>
             ))}
           </div>

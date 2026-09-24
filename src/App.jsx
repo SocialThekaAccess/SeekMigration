@@ -13,6 +13,7 @@ import About from './component/About';
 import ServicePage from './Pages/Service';
 import AboutPage from './Pages/About';
 import ContactPage from './Pages/Contact';
+import CountriesPage from './Pages/Countries';
 
 import './App.css';
 
@@ -31,10 +32,11 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/"         element={<LandingPage />} />
-        <Route path="/services" element={<ServicePage />} />
-        <Route path="/about"    element={<AboutPage />} />
-        <Route path="/contact"  element={<ContactPage />} />
+        <Route path="/"          element={<LandingPage />} />
+        <Route path="/services"  element={<ServicePage />} />
+        <Route path="/about"     element={<AboutPage />} />
+        <Route path="/contact"   element={<ContactPage />} />
+        <Route path="/countries" element={<CountriesPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
