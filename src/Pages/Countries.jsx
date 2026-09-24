@@ -29,7 +29,98 @@ const PhoneIcon = () => (
   </svg>
 );
 
-/* ── Country Data ── */
+/* ── Country Flag SVGs ── */
+const FlagCA = () => (
+  <svg width="64" height="43" viewBox="0 0 64 43" xmlns="http://www.w3.org/2000/svg" style={{borderRadius:'6px',display:'block'}}>
+    <rect width="64" height="43" fill="#fff"/>
+    <rect width="16" height="43" fill="#D80000"/>
+    <rect x="48" width="16" height="43" fill="#D80000"/>
+    <path d="M32 6l2.5 6.5H41l-5 3.5 2 6.5-6-4-6 4 2-6.5-5-3.5h6.5z" fill="#D80000"/>
+  </svg>
+);
+const FlagAU = () => (
+  <svg width="64" height="43" viewBox="0 0 64 43" xmlns="http://www.w3.org/2000/svg" style={{borderRadius:'6px',display:'block'}}>
+    <rect width="64" height="43" fill="#00008B"/>
+    <rect width="32" height="21" fill="#00008B"/>
+    {/* Union Jack */}
+    <line x1="0" y1="0" x2="32" y2="21" stroke="#fff" strokeWidth="4.5"/>
+    <line x1="32" y1="0" x2="0" y2="21" stroke="#fff" strokeWidth="4.5"/>
+    <line x1="0" y1="0" x2="32" y2="21" stroke="#CC142B" strokeWidth="2.5"/>
+    <line x1="32" y1="0" x2="0" y2="21" stroke="#CC142B" strokeWidth="2.5"/>
+    <line x1="16" y1="0" x2="16" y2="21" stroke="#fff" strokeWidth="6"/>
+    <line x1="0" y1="10.5" x2="32" y2="10.5" stroke="#fff" strokeWidth="6"/>
+    <line x1="16" y1="0" x2="16" y2="21" stroke="#CC142B" strokeWidth="3.5"/>
+    <line x1="0" y1="10.5" x2="32" y2="10.5" stroke="#CC142B" strokeWidth="3.5"/>
+    {/* Southern Cross stars */}
+    <circle cx="50" cy="10" r="2" fill="#fff"/>
+    <circle cx="56" cy="18" r="2" fill="#fff"/>
+    <circle cx="44" cy="20" r="2" fill="#fff"/>
+    <circle cx="58" cy="28" r="2" fill="#fff"/>
+    <circle cx="48" cy="32" r="1.5" fill="#fff"/>
+    {/* Commonwealth star */}
+    <circle cx="12" cy="30" r="3" fill="#fff"/>
+  </svg>
+);
+const FlagUK = () => (
+  <svg width="64" height="43" viewBox="0 0 64 43" xmlns="http://www.w3.org/2000/svg" style={{borderRadius:'6px',display:'block'}}>
+    <rect width="64" height="43" fill="#012169"/>
+    <line x1="0" y1="0" x2="64" y2="43" stroke="#fff" strokeWidth="8"/>
+    <line x1="64" y1="0" x2="0" y2="43" stroke="#fff" strokeWidth="8"/>
+    <line x1="0" y1="0" x2="64" y2="43" stroke="#C8102E" strokeWidth="5"/>
+    <line x1="64" y1="0" x2="0" y2="43" stroke="#C8102E" strokeWidth="5"/>
+    <line x1="32" y1="0" x2="32" y2="43" stroke="#fff" strokeWidth="13"/>
+    <line x1="0" y1="21.5" x2="64" y2="21.5" stroke="#fff" strokeWidth="13"/>
+    <line x1="32" y1="0" x2="32" y2="43" stroke="#C8102E" strokeWidth="8"/>
+    <line x1="0" y1="21.5" x2="64" y2="21.5" stroke="#C8102E" strokeWidth="8"/>
+  </svg>
+);
+const FlagUS = () => (
+  <svg width="64" height="43" viewBox="0 0 64 43" xmlns="http://www.w3.org/2000/svg" style={{borderRadius:'6px',display:'block'}}>
+    <rect width="64" height="43" fill="#B22234"/>
+    {[0,1,2,3,4,5,6].map(i=>(
+      <rect key={i} y={i*43/7} x="0" width="64" height={43/14} fill="#fff"/>
+    ))}
+    <rect width="26" height="23" fill="#3C3B6E"/>
+    {[0,1,2,3,4,5,7,8,9].map(i=>(
+      <text key={i} x={4+(i%5)*4.5} y={4+Math.floor(i/5)*5} fontSize="4" fill="#fff">★</text>
+    ))}
+  </svg>
+);
+const FlagNZ = () => (
+  <svg width="64" height="43" viewBox="0 0 64 43" xmlns="http://www.w3.org/2000/svg" style={{borderRadius:'6px',display:'block'}}>
+    <rect width="64" height="43" fill="#00247D"/>
+    <rect width="32" height="21" fill="#00247D"/>
+    <line x1="0" y1="0" x2="32" y2="21" stroke="#fff" strokeWidth="4.5"/>
+    <line x1="32" y1="0" x2="0" y2="21" stroke="#fff" strokeWidth="4.5"/>
+    <line x1="0" y1="0" x2="32" y2="21" stroke="#CC142B" strokeWidth="2.5"/>
+    <line x1="32" y1="0" x2="0" y2="21" stroke="#CC142B" strokeWidth="2.5"/>
+    <line x1="16" y1="0" x2="16" y2="21" stroke="#fff" strokeWidth="6"/>
+    <line x1="0" y1="10.5" x2="32" y2="10.5" stroke="#fff" strokeWidth="6"/>
+    <line x1="16" y1="0" x2="16" y2="21" stroke="#CC142B" strokeWidth="3.5"/>
+    <line x1="0" y1="10.5" x2="32" y2="10.5" stroke="#CC142B" strokeWidth="3.5"/>
+    {/* Southern Cross - red stars */}
+    <polygon points="46,8 47.2,11.5 51,11.5 48,13.5 49.2,17 46,15 42.8,17 44,13.5 41,11.5 44.8,11.5" fill="#CC142B" stroke="#fff" strokeWidth="0.5"/>
+    <polygon points="56,15 57,18 60,18 57.5,19.8 58.5,23 56,21.2 53.5,23 54.5,19.8 52,18 55,18" fill="#CC142B" stroke="#fff" strokeWidth="0.5"/>
+    <polygon points="50,25 51,28 54,28 51.5,29.8 52.5,33 50,31.2 47.5,33 48.5,29.8 46,28 49,28" fill="#CC142B" stroke="#fff" strokeWidth="0.5"/>
+    <polygon points="58,30 59,33 62,33 59.5,34.8 60.5,38 58,36.2 55.5,38 56.5,34.8 54,33 57,33" fill="#CC142B" stroke="#fff" strokeWidth="0.5"/>
+  </svg>
+);
+const FlagDE = () => (
+  <svg width="64" height="43" viewBox="0 0 64 43" xmlns="http://www.w3.org/2000/svg" style={{borderRadius:'6px',display:'block'}}>
+    <rect width="64" height="43" fill="#FFCE00"/>
+    <rect width="64" height="14.3" fill="#000"/>
+    <rect y="14.3" width="64" height="14.3" fill="#D00"/>
+  </svg>
+);
+
+const flagComponents = {
+  Canada: FlagCA,
+  Australia: FlagAU,
+  'United Kingdom': FlagUK,
+  'United States': FlagUS,
+  'New Zealand': FlagNZ,
+  Germany: FlagDE,
+};
 const countries = [
   {
     flag: '🇨🇦',
@@ -131,6 +222,11 @@ const countries = [
 
 const filters = ['All Countries', 'Canada', 'Australia', 'United Kingdom', 'United States', 'New Zealand', 'Germany'];
 
+const filterFlags = {
+  Canada: '🇨🇦', Australia: '🇦🇺', 'United Kingdom': '🇬🇧',
+  'United States': '🇺🇸', 'New Zealand': '🇳🇿', Germany: '🇩🇪',
+};
+
 const CountriesPage = () => {
   const [active, setActive] = useState(null); // expanded country
   const [filter, setFilter] = useState('All Countries');
@@ -172,7 +268,7 @@ const CountriesPage = () => {
               className={`cp2__filter-btn ${filter === f ? 'cp2__filter-btn--active' : ''}`}
               onClick={() => { setFilter(f); setActive(null); }}
             >
-              {f}
+              {filterFlags[f] && <span style={{marginRight:'6px'}}>{filterFlags[f]}</span>}{f}
             </button>
           ))}
         </div>
@@ -194,7 +290,9 @@ const CountriesPage = () => {
 
                   {/* Card Header */}
                   <div className="cp2__card-header">
-                    <div className="cp2__card-flag">{country.flag}</div>
+                    <div className="cp2__card-flag">
+                      {(() => { const F = flagComponents[country.name]; return F ? <F /> : null; })()}
+                    </div>
                     <div className="cp2__card-meta">
                       <h2>{country.name}</h2>
                       <p>{country.tagline}</p>
